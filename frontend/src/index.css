@@ -1,0 +1,87 @@
+/**
+ * The application's only stylesheet entry point.
+ *
+ * Tokens first, then the component layer that consumes them, then the optional
+ * custom theme layer. Screens should need no CSS beyond these: compose the
+ * classes in styles/components.css and the components in src/ui instead.
+ *
+ * If a feature genuinely needs a new rule, add it at the bottom of this file
+ * using tokens — never a raw hex, px size or duration.
+ */
+@import "./styles/tokens.css";
+@import "./styles/components.css";
+@import "./styles/theme.css";
+
+/* Calculator-specific layout, built from existing design tokens only */
+
+.calc-heading {
+  text-align: center;
+}
+
+.calc-display {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--space-2);
+  padding: var(--space-5);
+  border-radius: var(--radius-md);
+  background: var(--surface-sunken);
+  margin-bottom: var(--space-4);
+  min-height: 6rem;
+  justify-content: flex-end;
+}
+
+.calc-expression {
+  font-size: var(--text-sm);
+  min-height: 1.25em;
+}
+
+.calc-result {
+  font-size: 2.5rem;
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-snug);
+  color: var(--text);
+  word-break: break-all;
+  text-align: right;
+}
+
+.calc-result-error {
+  color: var(--danger);
+}
+
+.calc-sci-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+}
+
+.calc-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-3);
+}
+
+.calc-grid > button {
+  min-height: 3.25rem;
+  font-size: var(--text-lg);
+}
+
+.calc-equals {
+  grid-row: span 2;
+  height: 100%;
+}
+
+.calc-zero {
+  grid-column: span 2;
+}
+
+.calc-hint {
+  justify-content: center;
+}
+
+@media (max-width: 480px) {
+  .calc-result {
+    font-size: 2rem;
+  }
+}
